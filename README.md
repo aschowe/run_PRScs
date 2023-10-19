@@ -1,13 +1,13 @@
 # run_PRScs 
-Pipeline to compute PGSs using PRScs 
-contact: alicia_schowe@psych.mpg.de 
-This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRScs when using this pipeline)
+- Pipeline to compute PGSs using PRScs 
+- contact: alicia_schowe@psych.mpg.de 
+- This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRScs when using this pipeline)
 
-# Getting Started
+# Getting started
 - clone this repository (git clone https://github.molgen.mpg.de/mpip/run_PRScs.git)
-- clone the newest version of PRScs (git clone https://github.com/getian107/PRScs.git) inot run_PRScs directory
+- clone the newest version of PRScs (git clone https://github.com/getian107/PRScs.git) into run_PRScs directory
 
-## requirements: 
+## Requirements: 
 - 1000G reference panel 
 - GWAS summary statistics
 - target genotype file 
@@ -22,8 +22,8 @@ This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRS
 - Note4: Please note that this pipeline by default uses the European reference panel!! You can change this by editing the following line in the 01_PRScs.sh script from: "--ref_dir=/binder/common/PRS-CS/ldblk_1kg_eur \" to "--ref_dir=/binder/common/PRS-CS/NEW_REF_HERE \"
 
 2. Execute PRScs with this command: (note: it is called single PRS because in the future I hope I can make this run consecutively over multiple GWASes from text file so that not each individual PGS computation requires manual initiation) 
-cd run_PRScs
-bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
+- cd run_PRScs
+- bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
 
 How it works: 
 - 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome.
