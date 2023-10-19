@@ -26,8 +26,7 @@
 - bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
 
 How it works: 
-- 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome.
-- The of this first step will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
+- 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome. This output of this first step will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
 - If all 22 jobs run successfully, 02_slurm_reports.sh tidies up the slurm reports and 03_compute_PRS.sh sums up the weighted effect sizes of across all chromosomes into a single score per individual.  
 
 3. If it does not run through completly, check the slurm file of the last chromosome it completed. 
