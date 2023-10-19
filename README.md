@@ -1,18 +1,17 @@
-# ====================================================================================================
-# Pipeline to compute PGSs using PRScs 
-# contact: alicia_schowe@psych.mpg.de 
-# This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRScs when using this pipeline)
+# run_PRScs 
+Pipeline to compute PGSs using PRScs 
+contact: alicia_schowe@psych.mpg.de 
+This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRScs when using this pipeline)
 
-# =====================================================================================================
-# pipeline requirements: please check https://github.com/getian107/PRScs for details!  
-## files and installations  
+# Pipeline requirements: 
+Please check https://github.com/getian107/PRScs for details!  
+Requirements: 
 - 1000G reference panel 
 - GWAS summary statistics
 - target genotype files 
 - PRScs, python, R, plink 
 
-# ==================================================================================================================
-# execution 
+# Instructions 
 [0. I recommend checking https://github.com/getian107/PRScs on a regular basis for PRScs updates] 
 1. Prepare all GWAS summary statistics => including the header line, format into: SNP|A1|A2|BETA|SE or SNP|A1|A2|BETA|P (instead of BETA you can also supply OR)   
 Note1: When preparing GWAS summary statistics, check for matching genome build (reference panel is based on hg37), ancestry and column of the effect allele! 
@@ -30,13 +29,12 @@ If all 22 jobs run successfully, 02_slurm_reports.sh tidies up the slurm reports
 3. If it does not run through completly, check the slurm file of the last chromosome it completed. 
 In general, it is best to go through the slurm files once to check any error messages and whther the number of included SNPs is plausible! (in the future I will see whether i can automate summarising errors from all slurm files) 
 
-# Example of an output folder: 
-{NAME_PGS}.txt => weights of all chromosomes
-{NAME_PGS}_PRS.log => plink log file 
-{NAME_PGS}_PRS.profile => Final weighted PGS for each individual 
-{NAME_PGS}_pst_eff_a1_b0.5_phiauto_chr1.txt => 22 files including the PRScs computed weights for each genetic variant per chromosome
+## Example of an output folder: 
+- {NAME_PGS}.txt => weights of all chromosomes
+- {NAME_PGS}_PRS.log => plink log file 
+- {NAME_PGS}_PRS.profile => Final weighted PGS for each individual 
+- {NAME_PGS}_pst_eff_a1_b0.5_phiauto_chr1.txt => 22 files including the PRScs computed weights for each genetic variant per chromosome
 
-# ==================================================================================================================
 # Methods description template 
 PGS were computed using PRS-CS (Ge et al., 2019) and PLINK 1.9 (Purcell et al., 2007). 
 PRS-CS was applied to infer posterior mean effects by chromosome for autosomal single nucleotide polymorphisms (SNPs) 
