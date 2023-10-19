@@ -36,7 +36,7 @@ In general, it is best to go through the slurm files once to check any error mes
 - {NAME_PGS}_PRS.profile => Final weighted PGS for each individual 
 - {NAME_PGS}_pst_eff_a1_b0.5_phiauto_chr1.txt => 22 files including the PRScs computed weights for each genetic variant per chromosome
 
-# Methods description template 
+# Methods template
 PGS were computed using PRS-CS (Ge et al., 2019) and PLINK 1.9 (Purcell et al., 2007). 
 PRS-CS was applied to infer posterior mean effects by chromosome for autosomal single nucleotide polymorphisms (SNPs) 
 that overlap between the given discovery genome-wide association study (GWAS) 
@@ -45,7 +45,7 @@ To ensure convergence of the underlying Gibbs sampler algorithm,
 we set Markov chain Monte Carlo (MCMC) iteration to 10,000 and the first 5,000 MCMC iterations as burn-in (Schultz et al., 2022).  
 For all other PRS-CS parameter the default settings were used. Using the PLINK 1.9 score function, 
 raw PGSs were then calculated for each participant as a sum of the risk allele count weighted by 
-the posterior means effects returned by PRS-CS, and then standardized to cohort mean = 0 and SD = 1 in R50 (4.1.3 (2022-03-10). 
+the posterior means effects returned by PRS-CS. 
 
 ## References
 Auton A, Abecasis GR, Altshuler DM, et al. A global reference for human genetic variation. Nature. 2015;526(7571):68-74. doi:10.1038/nature15393
