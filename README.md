@@ -3,9 +3,12 @@ Pipeline to compute PGSs using PRScs
 contact: alicia_schowe@psych.mpg.de 
 This PRS Pipeline based on:  https://github.com/getian107/PRScs (please cite PRScs when using this pipeline)
 
-# Pipeline requirements: 
-Please check https://github.com/getian107/PRScs for details!  
-Requirements: 
+# Getting Started
+- clone this repository (git clone https://github.molgen.mpg.de/mpip/run_PRScs.git)
+- clone the newest version of PRScs (git clone https://github.com/getian107/PRScs.git)
+
+## requirements: 
+Please check https://github.com/getian107/PRScs for current updates/further information!  
 - 1000G reference panel 
 - GWAS summary statistics
 - target genotype files 
