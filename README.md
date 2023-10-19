@@ -22,12 +22,13 @@ Note4: Please note that this pipeline by default uses the European reference pan
 2. Execute PRScs with this command: (note: it is called single PRS because in the future I hope I can make this run consecutively over multiple GWASes from json text file sp that not each individual PGS computation required manual initiation) 
 bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
 
-How it works: this script will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome.
-The output of this script will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
-If all 22 jobs run successfully, 02_slurm_reports.sh tidies up the slurm reports and 03_compute_PRS.sh sums up the weighted effect sizes of across all chromosomes into a single score per individual.  
+How it works: 
+- 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome.
+- The of this first step will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
+- If all 22 jobs run successfully, 02_slurm_reports.sh tidies up the slurm reports and 03_compute_PRS.sh sums up the weighted effect sizes of across all chromosomes into a single score per individual.  
 
 3. If it does not run through completly, check the slurm file of the last chromosome it completed. 
-In general, it is best to go through the slurm files once to check any error messages and whther the number of included SNPs is plausible! (in the future I will see whether i can automate summarising errors from all slurm files) 
+In general, it is best to go through the slurm files once to check any error messages and whether the number of included SNPs is plausible! (in the future I will see whether i can automate summarising errors from all slurm files) 
 
 ## Example of an output folder: 
 - {NAME_PGS}.txt => weights of all chromosomes
