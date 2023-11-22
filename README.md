@@ -23,7 +23,16 @@
 
 2. Execute PRScs with this command: (note: it is called single PRS because in the future I hope I can make this run consecutively over multiple GWASes from text file so that not each individual PGS computation requires manual initiation) 
 - cd run_PRScs
-- bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
+- in command line: bash 00_run_single_PRS.sh PATH_TO_GENOTYPE PATH_TO_GWAS GWAS_N NAME_OUTDIR NAME_PGS PARTITION NODE 
+	- PATH_TO_GENOTYPE: path to your own genotyped data 
+	- PATH_TO_GWAS: path to the formatted GWAS summary statistics 
+	- GWAS_N = total GWAS sample size 
+	- NAME_OUTDIR = name of the output directory where your output files should be stored (if the output directory does not exist yet, the script will create a new directory via  mkdir) 
+	- NAME_PGS = the prefix of all your output files 
+	- PARTITION = the partition for all your jobs 
+	- NODE = the node for all your jobs 
+ 
+- example command line: bash 01_run_single_PRS.sh /binder/common/genotypes/qc_imputations/CovSocial_July2022/07_bestguess/M01083_01-16_genotypes_PLINK_GSA_hg19_forward_finalqc_finalupdate_all GWAS_sumstats/formatted/formatted_DEPno23andME_18022020.sumstats 1295946 PRS_output/DEP DEP pe pe5
 
 How it works: 
 - 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome. The output of this first step will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
