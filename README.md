@@ -32,7 +32,7 @@
 	- PARTITION = the partition for all your jobs 
 	- NODE = the node for all your jobs 
  
-- example command line: bash 01_run_single_PRS.sh /binder/common/genotypes/qc_imputations/CovSocial_July2022/07_bestguess/M01083_01-16_genotypes_PLINK_GSA_hg19_forward_finalqc_finalupdate_all GWAS_sumstats/formatted/formatted_DEPno23andME_18022020.sumstats 1295946 PRS_output/DEP DEP pe pe5
+- example command line: bash 00_run_single_PRS.sh /binder/common/genotypes/qc_imputations/CovSocial_July2022/07_bestguess/M01083_01-16_genotypes_PLINK_GSA_hg19_forward_finalqc_finalupdate_all GWAS_sumstats/formatted/formatted_DEPno23andME_18022020.sumstats 1295946 PRS_output/DEP DEP pe pe5
 
 How it works: 
 - 00_run_single_PRS.sh will call upon 01_PRScs.sh which will execute PRScs.py as an array job, running parallel continuous shrinkage on each chromosome. The output of this first step will be 22 chromosome files with their respective weights after applying continuous shrinkage based on reference dataset and GWAS.
