@@ -1,3 +1,12 @@
+# 
+author: Alicia Schowe
+contact: alicia_schowe@psych.mpg
+
+# Update log 
+# 05 Mar 2024 =================
+- fixed -sum flag in plink command 
+# ====================================
+
 # run_PRScs 
 - Pipeline to compute PGSs using PRScs 
 - contact: alicia_schowe@psych.mpg.de 
